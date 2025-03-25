@@ -88,7 +88,7 @@ model.fit(train_data, epochs=10, validation_data=val_data)
 > 
 > The categorical cross-entropy formula is expressed as:
 > 
-> L(y,y^)=−∑i=1Cyilog⁡(y^i)L(y,y^​)=−∑i=1C​yi​log(y^​i​)
+> ![[formula.png]]
 > 
 > Where:
 > 
