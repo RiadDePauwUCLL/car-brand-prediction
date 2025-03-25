@@ -82,7 +82,7 @@ model.fit(train_data, epochs=10, validation_data=val_data)
 - Adjust learning rate & use early stopping to prevent overfitting.
 - Use a GPU (depending on the pc, NVIDIA CUDA or AMD) to make the training faster.
 
-> [!for my fellow nerds]
+> [!NOTE]
 > 
 > ###### Mathematical Representation of Categorical Cross-Entropy
 > 
