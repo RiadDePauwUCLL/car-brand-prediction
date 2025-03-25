@@ -88,7 +88,7 @@ model.fit(train_data, epochs=10, validation_data=val_data)
 > 
 > The categorical cross-entropy formula is expressed as:
 > 
-> ![[formula.png]]
+> ![image](https://github.com/user-attachments/assets/26dec808-2eea-4c5b-a8a8-e653a0e5eb46)
 > 
 > Where:
 > 
