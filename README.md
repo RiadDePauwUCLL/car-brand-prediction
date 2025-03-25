@@ -1,6 +1,3 @@
-> - **Car Price prediction**: use images(CNN, Computer Vision)
-> 	- NumPy, PyTorch, Pandas, Matplotlib & Machine Learning.
-
 # Car Price Production: what's the approach?
 
 > - **Car Price prediction**: using images & datasets.
