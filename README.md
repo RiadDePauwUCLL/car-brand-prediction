@@ -159,6 +159,11 @@ Create an .env file... **WIP**
 > Datasets
 > - https://github.com/YBIFoundation/Dataset/blob/main/Car%20Price.csv
 > - https://public.opendatasoft.com/explore/dataset/all-vehicles-model/table/?sort=modifiedon
+>
+> 
+> Images
+> - Mostly scraped from https://www.pexels.com/search/audi%20car/
+> - Rest of images we're found through random datasets online, mainly copyright free.
 
 ---
 
