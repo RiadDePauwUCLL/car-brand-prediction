@@ -149,11 +149,16 @@ Create an .env file... **WIP**
 
 > [!NOTE]
 > 
-> **Image Classification using CNN:*
+> **Image Classification using CNN**
 > - https://www.analyticsvidhya.com/blog/2020/02/learn-image-classification-cnn-convolutional-neural-networks-3-datasets/
 > - https://www.kaggle.com/code/anandhuh/image-classification-using-cnn-for-beginners
 > - https://www.geeksforgeeks.org/image-classifier-using-cnn/
 > 
+
+> [!NOTE]
+> Datasets
+> - https://github.com/YBIFoundation/Dataset/blob/main/Car%20Price.csv
+> - https://public.opendatasoft.com/explore/dataset/all-vehicles-model/table/?sort=modifiedon
 
 ---
 
