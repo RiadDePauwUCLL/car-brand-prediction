@@ -140,7 +140,9 @@ What we might also have to try out, is to make a better visual representation of
 
 ## How to start & use
 
-Create an .env file... **WIP**
+Make sure you download the images and **save them inside the /images folder**(**Have at least 10GB on ur disk free**, or else the models won't be able to process the data):
+- https://drive.google.com/file/d/1TZC1AHUvbeDF70HcpLYZ5xL3_J07PKV0/view?usp=sharing
+- Create an .env file... **WIP**
 
 
 ---
