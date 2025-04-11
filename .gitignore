@@ -1,4 +1,19 @@
-testtest.md
+# virtual env files
 .env
-pexels
+
+# annoying pycache
+__pycache__/
+
+#ignore the 100k+ images of cars
 /images/cars
+
+#ignore training data
+/data
+
+# ignore all checkpoints & model folders
+/checkpoints/*
+/models
+
+
+# ignore all models
+*.pth
