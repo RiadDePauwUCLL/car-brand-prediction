@@ -166,6 +166,7 @@ Make sure you download the images and **save them inside the /images folder**(**
 > Images
 > - Mostly scraped from https://www.pexels.com/search/audi%20car/
 > - Rest of images we're found through random datasets online, mainly copyright free.
+> - https://www.kaggle.com/datasets/eimadevyni/car-model-variants-and-images-dataset
 
 ---
 
