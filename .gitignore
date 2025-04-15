@@ -5,8 +5,7 @@
 __pycache__/
 
 #ignore the 100k+ images of cars
-/images/cars
-/images/cars2
+/images/c*
 /images/googlescrape
 
 #ignore training data
