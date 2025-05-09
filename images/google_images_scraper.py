@@ -3,7 +3,7 @@ import os
 import glob
 import shutil
 
-def scrape_images(search_term, max_images=10):
+def scrape_images(search_term, max_images):
     # Create the directory path for this search term
     dir_path = os.path.join('./images/googlescrape', search_term)
     
@@ -55,4 +55,4 @@ def rename_images(directory, search_term):
     os.rmdir(temp_dir)
 
 # Example usage:
-scrape_images('MG car back', 65)
+scrape_images('sports car', 65)
