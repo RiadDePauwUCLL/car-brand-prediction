@@ -1,176 +1,92 @@
-# Car Price Production: what's the approach?
+# Car Image Classification Project
 
-> - **Car Price prediction**: using images & datasets.
-> 	- **Convolutional Neural Networks & Computer Vision**
-> 	- **NumPy, PyTorch, Pandas, Matplotlib, Seaborn, TensorFlow/Keras**
-> 	- **Deep Learning, Transfer Learning & Machine Learning**
+![Car Classification Banner](https://miro.medium.com/v2/resize:fit:1400/0*tH9evuOFqk8F41FG.png)
 
-- We are going to focus **primarily on using pictures of cars & a probable mix of datasets online**. We would be using some sort of image classification.
-- We are going to find a way on making predictions with a decent accuracy for the prices of the cars. It's important that the prices are going to be fair.
-- Have a visual approach with datasets aka data visualization, hence e.g. Pandas & Matplotlib/Seaborn.
-- Being able to separate diverse data coming from all over world, e.g. currency or car brands.
+## 📋 Overview
+This project implements a deep learning model that can identify **120 different car brands** from images with 75% accuracy. Built on ResNet50 architecture, the model excels at distinguishing between visually similar car models under varied lighting conditions and camera angles.
 
+## 🚗 Features
 
----
+- **Multi-class Image Classification** - Identifies car brands from standard images
+- **Transfer Learning** - Leverages pre-trained ResNet50 model fine-tuned on car data
+- **Advanced Data Processing** - Uses comprehensive augmentation and class balancing
+- **Progressive Training** - Employs gradual layer unfreezing for optimal learning
 
-## The scope of the CNN 
+## 🔧 Technical Implementation
 
-The most important part of the project is understanding that how the CNN is going to proceed on classifying the vehicles. *It should also be able to distinguish if it's a car or not.*
+### Data Processing
+- **Smart Brand Detection** - Automatically extracts car brands from filenames
+- **Balanced Dataset Creation** - Uses stratified splitting for representative data distribution
+- **Enhanced Augmentation** - Implements rotations, flips, color shifts, and erasing
+- **Performance Optimization** - Employs caching mechanism for faster data loading
 
-- Car Brands(Tesla, BMW, Toyota)
-- Car Models(X6M, Model T, Supra)
-- Car Types(SUV, Coupe, Sports)
-- Car Features(electric, gasoline, race-car like a F1-car,...)
+<img alt="ResNet50 Architecture" src="https://www.researchgate.net/publication/330065177/figure/fig3/AS:710346088132608@1546371113232/Evaluation-of-CNN-model-performance-using-ResNet50-as-an-example-A-B-Architecture-of.png">
 
-Understanding the differences is important & key for the CNN, else we won't be able to determine a decent & accurate prediction regarding the price of that specific car.
-
-### Collection & preparation of the data
-
-The sole focus is going to be on the images, sure, but let's make it easier for the CNN & combine it with existing dataset. Having more context on vehicles might genuinely help the AI understanding how to figure out what the price of a car can be.
-
-- Existing Datasets
-- Scraped Images: let's try to use as much copyright-free pictures as possible
-- Data Augmentation
-
-
-### What kind of CNN Model are we talking about?
-
-So here's the fun part. We have 2 ways of doing this, depending on the level of the complexity.
-
-- Train from Scratch: Use a large dataset(100k+ images).
-- Use Transfer Learning: Small dataset & a fine-tune a pretrained model like any of these 3:
-	- Resnet50
-	- VGG16
-	- EfficientNet
-
-Here's an example I found online that uses TensorFlow/Keras with Transfer Learning:
+### Model Architecture
 ```python
-import tensorflow as tf
-from tensorflow.keras.applications import ResNet50
-from tensorflow.keras.layers import Dense, Flatten
-from tensorflow.keras.models import Model
-
-# Load pre-trained ResNet50
-base_model = ResNet50(weights='imagenet', include_top=False, input_shape=(224, 224, 3))
-
-# Freeze base model layers
-for layer in base_model.layers:
-    layer.trainable = False
-
-# Add custom classification head
-x = Flatten()(base_model.output)
-x = Dense(512, activation='relu')(x)
-x = Dense(128, activation='relu')(x)
-output = Dense(num_classes, activation='softmax')(x)
-
-# Build model
-model = Model(inputs=base_model.input, outputs=output)
-model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
-
-# Train on your dataset
-model.fit(train_data, epochs=10, validation_data=val_data)
-
+nn.Sequential(
+    nn.Linear(2048, 2048),
+    nn.BatchNorm1d(2048),
+    nn.ReLU(),
+    nn.Dropout(0.3),
+    nn.Linear(2048, 1024),
+    nn.BatchNorm1d(1024),
+    nn.ReLU(),
+    nn.Dropout(0.3),
+    nn.Linear(1024, num_classes)
+)
 ```
 
+### Advanced Training Techniques
+- **Class-weighted Loss** - Addresses class imbalance in training data
+- **Optimized Learning Rate** - Uses OneCycleLR scheduler
+- **Gradient Accumulation** - Enables larger effective batch sizes
 
-### Train & fine-tune the model
+## 📊 Performance & Visualization
 
-- Using [^1]***Categorical Cross Entropy*(CCE)^^** loss for multi-class classification.
-- Adjust learning rate & use early stopping to prevent overfitting.
-- Use a GPU (depending on the pc, NVIDIA CUDA or AMD) to make the training faster.
+- **75% Accuracy** across 120 car brands
+- **Interactive Testing Tools**:
+  - Confusion matrix visualization
+  - Random image classification with confidence scores
+  - External image testing
+  - Confidence threshold analysis
 
-> [!NOTE]
-> 
-> ###### Mathematical Representation of Categorical Cross-Entropy
-> 
-> The categorical cross-entropy formula is expressed as:
-> 
-> ![image](https://github.com/user-attachments/assets/26dec808-2eea-4c5b-a8a8-e653a0e5eb46)
-> 
-> Where:
-> 
-> - L(y,y^)L(y,y^​) is the categorical cross-entropy loss.
-> - yiyi​ is the true label (0 or 1 for each class) from the one-hot encoded target vector.
-> - y^iy^​i​ is the predicted probability for class ii.
-> - CC is the number of classes.
-> ---
-> Source: https://www.geeksforgeeks.org/categorical-cross-entropy-in-multi-class-classification/
+## 🖥️ Setup Requirements
 
+### Recommended Hardware
+- **RAM**: 8GB minimum
+- **CPU**: Intel i5 9000+ / i7 9000+ / AMD Ryzen 5 5000+
+- **GPU**: NVIDIA GTX 1660 4GB or AMD Radeon RX 6000+ series
 
-### Evaluation & Deployment
+### Installation Instructions
 
-Testing the model out on images & datasets. Figuring out how to constantly improve it & maybe even have a possibility of deploying it in the future.
+1. **Download Required Files**
+   - Get all necessary files from [this Google Drive folder](https://drive.google.com/drive/folders/1k8kXTguWizL66vKi5Zhq11R6zXZ9i8tI?usp=sharing)
+   - Place `75acc.pth` model in the project root folder
+   - Add cached files to the cache directory
+   - Extract the `cars5` folder to images
 
-### For the deployment
-- Converting to TensorFlow Lite on edge devices
-- Using a REST API like Flask or FastAPI
+2. **Install Dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
 
+3. **Process Cached Transforms**
+   - Open test-model.ipynb
+   - Run the **Data preparation** section
+   - Wait for caching to complete (20 min to 2 hours depending on hardware)
 
-----
+4. **Start Model Evaluation**
+   - Proceed to the **Model evaluation** section
+   - Test with provided or custom images
 
-## The scope of the Data Import & Preprocessing
+## 🔍 Applications
 
-The title says it all. We need to correctly import the data & make sure we clean it before starting up any work with it.
-
-
-### What's the take here?
-
-Having some data to help making the model learn & predict a more accurate price regarding a specific car. The more confident/precise it is, the better.
-
-### What are the steps?
-
-1. Data Importation: making sure it's valid & up-to-date.
-2. Cleaning the data: dropping missing/incorrect & duplicated data from rows & columns.
-3. Data Visualization: Visualize the connections & coalitions of all columns with each-other. 
-4. Compiling & Training the models: Splitting the preprocessed data & finding out the best possible models.
-5. Evaluation: Feeding the data into a deep learning model & then proceed with a comparison of prices of the datasets with the predictions of the images themselves.
-
+- **Automated Vehicle Identification** in images and video
+- **Demographic Analysis** of vehicle distribution
+- **Integration** into larger monitoring systems
+- **Educational Tool** for demonstrating deep learning techniques
 
 ---
 
-## How will the process go?
-
-For now, I just have it figured out to what I'm going to use and how I'm going to proceed. But it's definitely a great start. 
-
-What we might also have to try out, is to make a better visual representation of how this model is going to show the output of it's own work. 
-**I will try to make a website where you can proceed with uploading the image of a car & make it predict the price of that specific car.**
-
-
----
-
-## How to start & use
-
-Make sure you download the images and **save them inside the /images folder**(**Have at least 10GB on ur disk free**, or else the models won't be able to process the data):
-- https://drive.google.com/file/d/1TZC1AHUvbeDF70HcpLYZ5xL3_J07PKV0/view?usp=sharing
-- Create an .env file... **WIP**
-
-
----
-
-## Sources
-
-> [!NOTE]
-> 
-> **Image Classification using CNN**
-> - https://www.analyticsvidhya.com/blog/2020/02/learn-image-classification-cnn-convolutional-neural-networks-3-datasets/
-> - https://www.kaggle.com/code/anandhuh/image-classification-using-cnn-for-beginners
-> - https://www.geeksforgeeks.org/image-classifier-using-cnn/
-> 
-
-> [!NOTE]
-> Datasets
-> - https://github.com/YBIFoundation/Dataset/blob/main/Car%20Price.csv
-> - https://public.opendatasoft.com/explore/dataset/all-vehicles-model/table/?sort=modifiedon
->
-> 
-> Images
-> - Mostly scraped from https://www.pexels.com/search/audi%20car/
-> - Rest of images we're found through random datasets online, mainly copyright free.
-> - https://www.kaggle.com/datasets/eimadevyni/car-model-variants-and-images-dataset
-
----
-
-## Annotations
-
-[^1]: It's known as a softmax loss or log loss, a commonly used function in machine learning. It's particularly used for classification problems. It measures the difference between the predicted probability distribution & the actual (true) distribution of classes. 
-	**TL;DR Function helps a ML model to determine how true the predictions are from the true labels, guiding it into learning to make more accurate predictions.**
+*Developed with PyTorch, TorchVision, and PyTorch DirectML*
