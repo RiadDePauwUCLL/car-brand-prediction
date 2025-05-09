@@ -20,7 +20,7 @@ This project implements a deep learning model that can identify **120 different 
 - **Enhanced Augmentation** - Implements rotations, flips, color shifts, and erasing
 - **Performance Optimization** - Employs caching mechanism for faster data loading
 
-<img alt="ResNet50 Architecture" src="https://www.researchgate.net/publication/330065177/figure/fig3/AS:710346088132608@1546371113232/Evaluation-of-CNN-model-performance-using-ResNet50-as-an-example-A-B-Architecture-of.png">
+![image](https://github.com/user-attachments/assets/e359fac9-ceeb-4b21-9e7e-c1bbd33ede8f)
 
 ### Model Architecture
 ```python
