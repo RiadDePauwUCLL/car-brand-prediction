@@ -5,6 +5,18 @@
 ## 📋 Overview
 This project implements a deep learning model that can identify **120 different car brands** from images with 75% accuracy. Built on ResNet50 architecture, the model excels at distinguishing between visually similar car models under varied lighting conditions and camera angles.
 
+## 📁 Project Structure
+
+- `car-classifierv1.ipynb`: Original model training implementation
+- `car-classifier.ipynb`: Improved version with advanced training techniques
+- `test-model.ipynb`: Tools for evaluating and visualizing model predictions
+- `csv-prep.ipynb`: Data preparation and CSV processing utilities
+- `price-predictor.ipynb`: Experimental price prediction component
+- `/models/`: Directory for storing trained model weights
+- `/cache/`: Cached preprocessed data and training states
+- `/data/`: Processed image data organized by class
+- `/images/`: Raw car image datasets
+
 ## 🚗 Features
 
 - **Multi-class Image Classification** - Identifies car brands from standard images
@@ -60,23 +72,29 @@ nn.Sequential(
 
 ### Installation Instructions
 
-1. **Download Required Files**
+1. **Installation**
+   ```bash
+   git clone https://github.com/RiadDePauwUCLL/car-brand-prediction.git
+   cd car-brand-prediction
+   ```
+
+2. **Download Required Files**
    - Get all necessary files from [this Google Drive folder](https://drive.google.com/drive/folders/1k8kXTguWizL66vKi5Zhq11R6zXZ9i8tI?usp=sharing)
    - Place `75acc.pth` model in the $./models/$ folder
    - Add cached files to the cache directory
    - Extract the `cars5` folder to images (It's over 10GB, make sure you have at least 15GB free)
 
-2. **Install Dependencies**
+3. **Install Dependencies**
    ```bash
    pip install -r requirements.txt
    ```
 
-3. **Process Cached Transforms**
+4. **Process Cached Transforms**
    - Open test-model.ipynb
    - Run the **Data preparation** section
    - Wait for caching to complete (20 min to 2 hours depending on hardware)
 
-4. **Start Model Evaluation**
+5. **Start Model Evaluation**
    - Proceed to the **Model evaluation** section
    - Test with provided or custom images
 
