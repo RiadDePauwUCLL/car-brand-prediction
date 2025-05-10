@@ -62,7 +62,7 @@ nn.Sequential(
 
 1. **Download Required Files**
    - Get all necessary files from [this Google Drive folder](https://drive.google.com/drive/folders/1k8kXTguWizL66vKi5Zhq11R6zXZ9i8tI?usp=sharing)
-   - Place `75acc.pth` model in the project root folder
+   - Place `75acc.pth` model in the $./models/$ folder
    - Add cached files to the cache directory
    - Extract the `cars5` folder to images (It's over 10GB, make sure you have at least 15GB free)
 
